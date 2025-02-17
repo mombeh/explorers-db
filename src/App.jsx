@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [movies, setMovies] = useState([])
+
+  useEffect(() => {
+    const fetchMovies = async () =>{
+        try{
+            const response =await fetch('https://api.themoviedb.org/3/discover/movie?api_key=ce0af01a28873ff7436eeacd3d3e4892')
+            const data = await response.json()
+            setMovies(data.results)
+        }catch (error) {
+            console.error('Error fetching movies:',error)
+        }
+    }
+    fetchMovies()
+},[])
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Header />
+    <h1 className='latest'>Latest and Tending</h1>
+    <div className='contain-image'>
+      {movies.map((item,index)=>{
+        return(
+          <>
+          <div className='movie' key={item.id}>
+            <p className='numbers'>{index + 1}</p>
+            <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}`} alt={item.title} className='items'/>
+          </div>
+          </>
+        )
+      })}
+    </div>
+    <Footer />
+
     </>
   )
 }
