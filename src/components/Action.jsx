@@ -6,7 +6,7 @@ function Action() {
     useEffect(() => {
       const fetchMovies = async () =>{
           try{
-              const response =await fetch('https://api.themoviedb.org/3/tv/popular?api_key=ce0af01a28873ff7436eeacd3d3e4892')
+              const response =await fetch('https://api.themoviedb.org/3/discover/movie?api_key=ce0af01a28873ff7436eeacd3d3e4892')
               const data = await response.json()
               setMovies(data.results)
           }catch (error) {
