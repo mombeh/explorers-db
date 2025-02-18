@@ -16,16 +16,16 @@ const Footer = () => {
                 <div>
                     <h3>View Website in</h3>
                     <button className="arrors">
-                      
+                        <img src="/images/check (1).png" alt=""/>
                         <h2 className="english">English</h2>
                         <img src="/images/down.png" alt="" />
                     </button>
                 </div>
                 <div>
                     <h3>Social Media</h3>
-                    <div>
+                    <div className="media">
                         <img src="/images/instagram (1).png" alt="" />
-                        <img src="p/images/twitter-sign.png" alt="" />
+                        <img src="/images/social-media.png" alt="" />
                     </div>
                 </div>
                 <div>
