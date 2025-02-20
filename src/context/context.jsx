@@ -1,21 +1,20 @@
-import { createContext, useState, useRef } from "react"
-import PropTypes from "prop-types"
+import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
-export const MovieContext = createContext()
+export const MovieContext = createContext();
 
-const MovieContextData = ({chidren}) => {
+export const MovieContextData = ({ children }) => {
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
-    const [selectedMovie, setSelectedMovie] = useState(null)
+  return (
+    <MovieContext.Provider value={{ selectedMovie, setSelectedMovie }}>
+      {children}
+    </MovieContext.Provider>
+  );
+};
 
+MovieContextData.propTypes = {
+  children: PropTypes.node,
+};
 
-    return (
-        <MovieContext.Provider value={{selectedMovie, setSelectedMovie}}>
-           {chidren}
-        </MovieContext.Provider>
-    )
-}
-export default MovieContextData
-
-MovieContextData.PropTypes= {
-    chidren: PropTypes.node
-}
+export default MovieContextData;

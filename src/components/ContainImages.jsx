@@ -21,11 +21,12 @@ const ContainImage = () => {
         <h1 className='latest'>Latest and Trending</h1>
         <div className='contain-image'>
           {movies.map((item, index) => (
-            <div className='movie' key={item.id}>  {/* key moved here */}
+            <div className='movie' key={item.id}>
               <p className='numbers'>{index + 1}</p>
               <img 
                 src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}`} 
                 alt={item.title} 
+                onClick={()=>redirectToDetail(item)}
                 className='items'
               />
             </div>

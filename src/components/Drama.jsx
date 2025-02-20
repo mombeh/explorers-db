@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function Drama() {
+function Drama({redirectToDetail}) {
     const [movies, setMovies] = useState([])
   
     useEffect(() => {
@@ -27,7 +27,7 @@ function Drama() {
           return(
             <>
             <div className='movies' key={item.id}>
-              <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}`} alt={item.title} className='items'/>
+              <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}`} alt={item.title} className='items' onClick={()=>redirectToDetail(item)}/>
             </div>
             </>
           )
