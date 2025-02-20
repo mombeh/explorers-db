@@ -70,6 +70,8 @@ input {
   border-radius: 20px;
   height: 45px;
   margin-top: 10px;
+  z-index: 100;
+
 }
 
 input:focus {
@@ -233,6 +235,13 @@ ul {
   font-weight: bolder;
   margin-top: -77px;
   margin-left: 20px;
+}
+
+
+
+.search-item img {
+  width: 150px;
+  height: 150px;
 }
 
 .items {

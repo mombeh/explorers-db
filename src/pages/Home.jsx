@@ -18,9 +18,9 @@ const Home = () => {
   const { setSelectedMovie } = useContext(MovieContext);
   const navigate = useNavigate();
 
-  const handleNavigation = (movie) => {
-    setSelectedMovie(movie);
-    navigate(`/detail/${movie.id}`);
+  const handleNavigation = (item) => {
+    setSelectedMovie(item);
+    navigate(`/detail/${item.id}`);
   };
 
   return (
@@ -34,7 +34,7 @@ const Home = () => {
         <Adventure />
         <Paragraph />
         <Button />
-        <ContainImage />
+        <ContainImage redirectToDetail={handleNavigation}/>
       </div>
       <TopSearch redirectToDetail={handleNavigation} />
       <Action redirectToDetail={handleNavigation} />

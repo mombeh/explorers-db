@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const ContainImage = () => {
+const ContainImage = ({redirectToDetail}) => {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {

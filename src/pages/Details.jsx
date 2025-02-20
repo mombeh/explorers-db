@@ -19,9 +19,9 @@ const Details = () => {
   const { setSelectedMovie } = useContext(MovieContext);
   const navigate = useNavigate();
 
-  const handleNavigation = (movie) => {
-    setSelectedMovie(movie);
-    navigate(`/detail/${movie.id}`);
+  const handleNavigation = (item) => {
+    setSelectedMovie(item);
+    navigate(`/detail/${item.id}`);
   };
 
   return (
@@ -39,8 +39,8 @@ const Details = () => {
         </div>
       </div>
       <TopCast />
-      <Action />
-      <Drama />
+      <Action redirectToDetail={handleNavigation}/>
+      <Drama redirectToDetail={handleNavigation}/>
       <Footer />
     </>
   );
