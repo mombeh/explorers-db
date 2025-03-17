@@ -34,8 +34,6 @@ function Action({redirectToDetail}) {
           )
         })}
       </div>
-
-  
       </div>
     )
   }
