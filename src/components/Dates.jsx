@@ -1,5 +1,3 @@
-
-
 const Dates =()=>{
     return(
         <div className="acts">

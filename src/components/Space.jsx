@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Space =({desciption})=>{
     return(
         <>
